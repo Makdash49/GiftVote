@@ -7,7 +7,6 @@ export class ProductUserOne extends React.Component {
   handlePlus (e) {
     e.preventDefault();
     var {dispatch, id, counterUserOne, userOneTotal} = this.props;
-    // var percentage = Math.round((counterUserOne + 1) / (userOneTotal + 1) * 100);
     dispatch(actions.startIncrementProductUserOne(id, counterUserOne));
     }
 
@@ -20,8 +19,6 @@ export class ProductUserOne extends React.Component {
 
   render() {
     var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
-    // // // console.log('CounterUserOne:', counterUserOne);
-    // // // console.log('userOneTotal', userOneTotal);
     var votesWord = "Votes";
 
     if (counterUserOne === 1) {
@@ -87,9 +84,3 @@ export class ProductUserOne extends React.Component {
 };
 
 export default connect()(ProductUserOne);
-
-// export default connect(
-//   (state) => {
-//     return state;
-//   }
-// )(Product);

@@ -20,7 +20,6 @@ export class ProductUserTwo extends React.Component {
 
   render() {
     var {text, image, counterUserTwo, userTwoTotal, userNumber} = this.props;
-    // // // // // console.log('CounterUserTwo:', counterUserTwo);
     var votesWord = "Votes";
 
     if (counterUserTwo === 1) {
