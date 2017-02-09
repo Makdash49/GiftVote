@@ -4,34 +4,34 @@ import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 
 var socket = io();
 
-export var setSearchText = (searchText) => {
-  return {
-    type: 'SET_SEARCH_TEXT',
-    searchText
-  };
-};
+// export var setSearchText = (searchText) => {
+//   return {
+//     type: 'SET_SEARCH_TEXT',
+//     searchText
+//   };
+// };
 
-export var startSetSearchText = (searchText = '') => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    // var newState = getState().showCompleted;
-    var toggleRef = firebaseRef.child(`users/${uid}/searchText`).set(searchText);
-  };
-};
+// export var startSetSearchText = (searchText = '') => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     // var newState = getState().showCompleted;
+//     var toggleRef = firebaseRef.child(`users/${uid}/searchText`).set(searchText);
+//   };
+// };
 
-export var toggleShowCompleted = () => {
-  return {
-    type: 'TOGGLE_SHOW_COMPLETED'
-  };
-};
+// export var toggleShowCompleted = () => {
+//   return {
+//     type: 'TOGGLE_SHOW_COMPLETED'
+//   };
+// };
 
-export var startToggleShowCompleted = () => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    var newState = getState().showCompleted;
-    var toggleRef = firebaseRef.child(`users/${uid}/showCompleted`).set(!newState);
-  };
-};
+// export var startToggleShowCompleted = () => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var newState = getState().showCompleted;
+//     var toggleRef = firebaseRef.child(`users/${uid}/showCompleted`).set(!newState);
+//   };
+// };
 
 // export var startToggleEdit = () => {
 //   return (dispatch, getState) => {
@@ -41,57 +41,56 @@ export var startToggleShowCompleted = () => {
 //   };
 // };
 
-export var setShowCompleted = (boolean) => {
-  return {
-    type: 'SET_SHOW_COMPLETED',
-    boolean
-  };
-};
+// export var setShowCompleted = (boolean) => {
+//   return {
+//     type: 'SET_SHOW_COMPLETED',
+//     boolean
+//   };
+// };
 
-export var setEdit = (boolean) => {
-  return {
-    type: 'SET_EDIT',
-    boolean
-  };
-};
+// export var setEdit = (boolean) => {
+//   return {
+//     type: 'SET_EDIT',
+//     boolean
+//   };
+// };
 
-export var addTodo = (todo) => {
-  return {
-    type: 'ADD_TODO',
-    todo
-  };
-};
+// export var addTodo = (todo) => {
+//   return {
+//     type: 'ADD_TODO',
+//     todo
+//   };
+// };
 
-export var deleteTodo = (id) => {
-  return {
-    type: 'DELETE_TODO',
-    id
-  };
-};
+// export var deleteTodo = (id) => {
+//   return {
+//     type: 'DELETE_TODO',
+//     id
+//   };
+// };
 
-export var startAddTodo = (text) => {
-  return (dispatch, getState) => {
-    var todo = {
-      text,
-      completed: false,
-      createdAt: moment().unix(),
-      completedAt: null,
-      edit: false
-    };
-    var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
-
-    return todoRef.then(() => {
-      // dispatch(addTodo({
-      //   ...todo,
-      //   id: todoRef.key
-      // }))
-    });
-  };
-};
+// export var startAddTodo = (text) => {
+//   return (dispatch, getState) => {
+//     var todo = {
+//       text,
+//       completed: false,
+//       createdAt: moment().unix(),
+//       completedAt: null,
+//       edit: false
+//     };
+//     var uid = getState().auth.uid;
+//     var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
+//
+//     return todoRef.then(() => {
+//       // dispatch(addTodo({
+//       //   ...todo,
+//       //   id: todoRef.key
+//       // }))
+//     });
+//   };
+// };
 
 export var addProduct = (product) => {
-  // // // // // console.log("WE MADE IT HERE!!!!!");
   return {
     type: 'ADD_PRODUCT',
     product
@@ -99,7 +98,6 @@ export var addProduct = (product) => {
 };
 
 export var addUserID = (userID) => {
-  // // // // // console.log("WE MADE IT HERE!!!!!");
   return {
     type: 'ADD_USER_ID',
     userID
@@ -123,53 +121,49 @@ export var startAddProduct = (text) => {
       var productRef = firebaseRef.child(`products`).push(product);
 
       return productRef.then(() => {
-        // dispatch(addProduct({
-        //   ...product,
-        //   id: productRef.key
-        // }));
       });
     });
   };
 };
 
-export var startDeleteTodo = (id) => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
+// export var startDeleteTodo = (id) => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//
+//     var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`).remove();
+//
+//     return todoRef.then(() => {
+//       // dispatch(deleteTodo(id));
+//     });
+//   };
+// };
 
-    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`).remove();
+// export var addTodos = (todos) => {
+//   return {
+//     type: 'ADD_TODOS',
+//     todos
+//   };
+// };
 
-    return todoRef.then(() => {
-      // dispatch(deleteTodo(id));
-    });
-  };
-};
-
-export var addTodos = (todos) => {
-  return {
-    type: 'ADD_TODOS',
-    todos
-  };
-};
-
-export var startAddTodos = () => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    var todosRef = firebaseRef.child(`users/${uid}/todos`);
-
-    return todosRef.once('value').then((snapshot) => {
-      var todos = snapshot.val() || {};
-      var parsedTodos = [];
-
-      Object.keys(todos).forEach((todoId) => {
-        parsedTodos.push({
-          id: todoId,
-          ...todos[todoId]
-        });
-      });
-      // dispatch(addTodos(parsedTodos));
-    });
-  };
-};
+// export var startAddTodos = () => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var todosRef = firebaseRef.child(`users/${uid}/todos`);
+//
+//     return todosRef.once('value').then((snapshot) => {
+//       var todos = snapshot.val() || {};
+//       var parsedTodos = [];
+//
+//       Object.keys(todos).forEach((todoId) => {
+//         parsedTodos.push({
+//           id: todoId,
+//           ...todos[todoId]
+//         });
+//       });
+//       // dispatch(addTodos(parsedTodos));
+//     });
+//   };
+// };
 
 
 export var addProducts = (products) => {
@@ -199,62 +193,62 @@ export var startAddProducts = () => {
   };
 };
 
-export var autoAdd = () => {
-  return {
-    type: 'AUTO_ADD',
-    todo
-  };
-};
+// export var autoAdd = () => {
+//   return {
+//     type: 'AUTO_ADD',
+//     todo
+//   };
+// };
 
 
-export var updateTodo = (id, updates) => {
-  return {
-    type: 'UPDATE_TODO',
-    id,
-    updates
-  };
-};
+// export var updateTodo = (id, updates) => {
+//   return {
+//     type: 'UPDATE_TODO',
+//     id,
+//     updates
+//   };
+// };
 
-export var startToggleTodo = (id, completed) => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
-    var updates = {
-      completed,
-      completedAt: completed ? moment().unix() : null
-    };
-    return todoRef.update(updates).then(() => {
-      // dispatch(updateTodo(id, updates));
-    });
-  };
-};
+// export var startToggleTodo = (id, completed) => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+//     var updates = {
+//       completed,
+//       completedAt: completed ? moment().unix() : null
+//     };
+//     return todoRef.update(updates).then(() => {
+//       // dispatch(updateTodo(id, updates));
+//     });
+//   };
+// };
 
-export var startToggleEdit = (id, edit) => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
-    var updates = {
-      edit
-    };
-    return todoRef.update(updates).then(() => {
-      // dispatch(updateTodo(id, updates));
-    });
-  };
-};
+// export var startToggleEdit = (id, edit) => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+//     var updates = {
+//       edit
+//     };
+//     return todoRef.update(updates).then(() => {
+//       // dispatch(updateTodo(id, updates));
+//     });
+//   };
+// };
 
-export var startAddEdit = (id, text) => {
-  return (dispatch, getState) => {
-    var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
-    var updates = {
-      edit: false,
-      text
-    };
-    return todoRef.update(updates).then(() => {
-      // dispatch(updateTodo(id, updates));
-    });
-  };
-};
+// export var startAddEdit = (id, text) => {
+//   return (dispatch, getState) => {
+//     var uid = getState().auth.uid;
+//     var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+//     var updates = {
+//       edit: false,
+//       text
+//     };
+//     return todoRef.update(updates).then(() => {
+//       // dispatch(updateTodo(id, updates));
+//     });
+//   };
+// };
 
 export var login = (uid) => {
   return {
@@ -273,9 +267,7 @@ export var startLogin = () => {
       };
 
       var productRef = firebaseRef.child(`userIDs`).push(userID);
-      // // // // // console.log('Auth worked!', result);
     }, (error) => {
-      // // // // // console.log('Unable to auth', error);
     });
   };
 };
@@ -289,7 +281,6 @@ export var logout = () => {
 export var startLogout = () => {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
-      // // // // // console.log('Logged out!');
     });
   };
 };

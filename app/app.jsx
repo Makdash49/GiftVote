@@ -5,47 +5,39 @@ var {hashHistory} = require('react-router');
 
 var actions = require('actions');
 var store = require('configureStore').configure();
-// import firebase from 'app/firebase/';
 import firebase, {firebaseRef, githubProvider} from 'app/firebase/'
 import router from 'app/router/';
 
 
-// var socket = io();
-
-// socket.on('receive', function () {
-//   // // // // // console.log("WAAAAAHHHHHHOOOOOOOOOO");
-// });
-
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
-    store.dispatch(actions.startAddTodos());
+    // store.dispatch(actions.startAddTodos());
     // store.dispatch(actions.startAddProducts());
 
     hashHistory.push('/amazon');
-    var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
-    var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
-    var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
-    var editRef = firebaseRef.child(`users/${user.uid}/edit`);
+    // var notesRef = firebaseRef.child(`users/${user.uid}/todos`);
+    // var toggleRef = firebaseRef.child(`users/${user.uid}/showCompleted`);
+    // var searchRef = firebaseRef.child(`users/${user.uid}/searchText`);
+    // var editRef = firebaseRef.child(`users/${user.uid}/edit`);
     var productsRef = firebaseRef.child(`products`);
     var userIDsRef = firebaseRef.child(`userIDs`);
     // var productRef = firebaseRef.child(`users/${user.uid}/products`);
 
-    var todo;
+    // var todo;
     var id;
     var product;
 
-    searchRef.on('value', (snapshot) =>{
-      // // // // // // console.log('value', snapshot.key, snapshot.val());
-      var searchText = snapshot.val();
-      store.dispatch(actions.setSearchText(searchText));
-    });
+    // searchRef.on('value', (snapshot) =>{
+    //   // // // // // // console.log('value', snapshot.key, snapshot.val());
+    //   var searchText = snapshot.val();
+    //   store.dispatch(actions.setSearchText(searchText));
+    // });
 
-    toggleRef.on('value', (snapshot) =>{
-      // // // // // // console.log('value', snapshot.key, snapshot.val());
-      var boolean = snapshot.val();
-      store.dispatch(actions.setShowCompleted(boolean));
-    });
+    // toggleRef.on('value', (snapshot) =>{
+    //   var boolean = snapshot.val();
+    //   store.dispatch(actions.setShowCompleted(boolean));
+    // });
 
     // editRef.on('value', (snapshot) =>{
     //   // // // // // // console.log('value', snapshot.key, snapshot.val());
@@ -53,12 +45,12 @@ firebase.auth().onAuthStateChanged((user) => {
     //   store.dispatch(actions.setEdit(boolean));
     // });
 
-    notesRef.on('child_added', (snapshot) =>{
-      // // // // // // console.log('child_added', snapshot.key, snapshot.val());
-      todo = snapshot.val();
-      id = snapshot.key;
-      store.dispatch(actions.addTodo({...todo, id}));
-    });
+    // notesRef.on('child_added', (snapshot) =>{
+    //   // // // // // // console.log('child_added', snapshot.key, snapshot.val());
+    //   todo = snapshot.val();
+    //   id = snapshot.key;
+    //   store.dispatch(actions.addTodo({...todo, id}));
+    // });
 
     // editRef.on('value', (snapshot) =>{
     //   // // // // // // console.log('value', snapshot.key, snapshot.val());
@@ -84,19 +76,19 @@ firebase.auth().onAuthStateChanged((user) => {
       store.dispatch(actions.updateProduct(id, product));
     });
 
-    notesRef.on('child_changed', (snapshot) =>{
-      // // // // console.log('NOTES REF:  child_changed', snapshot.key, snapshot.val());
-      id = snapshot.key;
-      // // // // console.log('notesRef', id);
-      todo = snapshot.val();
-      store.dispatch(actions.updateTodo(id, todo));
-    });
+    // notesRef.on('child_changed', (snapshot) =>{
+    //   // // // // console.log('NOTES REF:  child_changed', snapshot.key, snapshot.val());
+    //   id = snapshot.key;
+    //   // // // // console.log('notesRef', id);
+    //   todo = snapshot.val();
+    //   store.dispatch(actions.updateTodo(id, todo));
+    // });
 
-    notesRef.on('child_removed', (snapshot) =>{
-      // // // // // // console.log('child_removed', snapshot.key, snapshot.val());
-      id = snapshot.key
-      store.dispatch(actions.deleteTodo(id));
-    });
+    // notesRef.on('child_removed', (snapshot) =>{
+    //   // // // // // // console.log('child_removed', snapshot.key, snapshot.val());
+    //   id = snapshot.key
+    //   store.dispatch(actions.deleteTodo(id));
+    // });
 
     userIDsRef.on('child_added', (snapshot) =>{
       // // console.log('UID_ADDED!!!!!!', snapshot.key, snapshot.val());
