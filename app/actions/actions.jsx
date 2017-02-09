@@ -32,7 +32,7 @@ export var startAddProduct = (text) => {
         edit: false
       };
       var uid = getState().auth.uid;
-      var productRef = firebaseRef.child(`products`).push(product);
+      firebaseRef.child(`products`).push(product);
     });
   };
 };
@@ -114,7 +114,7 @@ export var startIncrementProductUserOne = (id, counterUserOne) => {
     var updates = {
       counterUserOne: counterUserOne + 1
     };
-    return productRef.update(updates);
+    productRef.update(updates);
   };
 };
 
@@ -125,7 +125,7 @@ export var startIncrementProductUserTwo = (id, counterUserTwo) => {
     var updates = {
       counterUserTwo: counterUserTwo + 1
     };
-    return productRef.update(updates);
+    productRef.update(updates);
   };
 };
 
@@ -140,7 +140,7 @@ export var startDeincrementProductUserOne = (id, counterUserOne) => {
     var updates = {
       counterUserOne: counterUserOne - 1
     };
-    return productRef.update(updates);
+    productRef.update(updates);
   };
 };
 
@@ -154,6 +154,6 @@ export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
     var updates = {
       counterUserTwo: counterUserTwo - 1
     };
-    return productRef.update(updates);
+    productRef.update(updates);
   };
 };
