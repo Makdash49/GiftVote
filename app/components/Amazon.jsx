@@ -46,11 +46,8 @@ export class Amazon extends React.Component {
     var currentUser = this.props.auth.uid;
     var currentUserIndex;
 
-    console.log('userIDs', userIDs);
-
     for (var i = 0; i < userIDs.length; i++) {
       if (currentUser === userIDs[i].uid) {
-        console.log('CURRENT INDEX', i);
         currentUserIndex = i;
       }
     }

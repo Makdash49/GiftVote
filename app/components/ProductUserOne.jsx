@@ -31,8 +31,6 @@ export class ProductUserOne extends React.Component {
     var percentage = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
 
-    console.log('userNUMBER', userNumber);
-
     var myComponent = () => {
       if (userNumber === "ONE") {
         return (

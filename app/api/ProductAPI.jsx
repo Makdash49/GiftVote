@@ -48,7 +48,6 @@ module.exports = {
     return newFilteredProducts;
   },
   totalFilterProducts: function (products, userOneTotal, userTwoTotal) {
-    // console.log('PRODUCTS - PRODUCTS - PRODUCST', products);
     var filteredProducts = products;
 
     var newFilteredProducts = filteredProducts.sort((a, b) => {
@@ -67,7 +66,6 @@ module.exports = {
       isNaN(apercentageUserOne) ? apercentageUserOne = 0 : apercentageUserOne = apercentageUserOne;
       isNaN(apercentageUserTwo) ? apercentageUserTwo = 0 : apercentageUserTwo = apercentageUserTwo;
       var aFinalPercentage = apercentageUserOne + apercentageUserTwo;
-      console.log('aFinalPercentage', aFinalPercentage);
 
 
       var bpercentageUserOne = Math.round((b.counterUserOne / userOneTotal) * 100);
@@ -76,7 +74,6 @@ module.exports = {
       isNaN(bpercentageUserOne) ? bpercentageUserOne = 0 : bpercentageUserOne = bpercentageUserOne;
       isNaN(bpercentageUserTwo) ? bpercentageUserTwo = 0 : bpercentageUserTwo = bpercentageUserTwo;
       var bFinalPercentage = bpercentageUserOne + bpercentageUserTwo;
-      console.log('bFinalPercentage', bFinalPercentage);
 
       if(aFinalPercentage > bFinalPercentage) {
         return -1;

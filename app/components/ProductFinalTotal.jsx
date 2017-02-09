@@ -4,23 +4,8 @@ import * as actions from 'actions';
 
 export class ProductFinalTotal extends React.Component {
 
-  // handlePlus (e) {
-  //   e.preventDefault();
-  //   var {dispatch, id, counterUserTwo} = this.props;
-  //   dispatch(actions.startIncrementProductUserTwo(id, counterUserTwo));
-  //   }
-  //
-  // handleMinus (e) {
-  //   e.preventDefault();
-  //   var {dispatch, id, counterUserTwo} = this.props;
-  //   dispatch(actions.startDeincrementProductUserTwo(id, counterUserTwo));
-  //   }
-
-
-
   render() {
     var {text, image, counterUserOne, userOneTotal, counterUserTwo, userTwoTotal} = this.props;
-    // // // // // console.log('CounterUserTwo:', counterUserTwo);
 
     var percentageUserOne = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentageUserOne) ? percentageUserOne = 0 : percentageUserOne = percentageUserOne;
@@ -32,8 +17,6 @@ export class ProductFinalTotal extends React.Component {
 
 
     var myComponent = () => {
-
-
 
       return (
         <div>
@@ -53,14 +36,6 @@ export class ProductFinalTotal extends React.Component {
           </div>
         </div>
       )
-
-
-
-
-
-
-
-
     };
 
 
@@ -73,9 +48,3 @@ export class ProductFinalTotal extends React.Component {
 };
 
 export default connect()(ProductFinalTotal);
-
-// export default connect(
-//   (state) => {
-//     return state;
-//   }
-// )(Product);
