@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 
-export class TodoApp extends React.Component {
+export class About extends React.Component {
   onLogout(e) {
     var {dispatch} = this.props;
 
@@ -26,4 +26,4 @@ export class TodoApp extends React.Component {
   }
 };
 
-export default Redux.connect()(TodoApp);
+export default Redux.connect()(About);

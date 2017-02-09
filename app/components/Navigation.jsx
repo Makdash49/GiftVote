@@ -23,7 +23,7 @@ var Navigation = () => {
             <IndexLink to="/" activeClassName="active-link">{vote}</IndexLink>
           </li>
           <li>
-            <Link to="todos" activeClassName="active-link">{about}</Link>
+            <Link to="about" activeClassName="active-link">{about}</Link>
           </li>
         </ul>
       </div>
