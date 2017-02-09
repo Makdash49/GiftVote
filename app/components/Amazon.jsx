@@ -7,12 +7,8 @@ import ProductAPI from 'ProductAPI'
 import UserAPI from 'UserAPI';
 import ReactMotionFlip from "react-motion-flip"
 
-
-
 import * as actions from 'actions';
 var socket = io();
-
-
 
 export class Amazon extends React.Component {
 
@@ -38,8 +34,6 @@ export class Amazon extends React.Component {
       this.refs.todoText.focus();
     }
   }
-
-
 
   render() {
     var userIDs = UserAPI.filterUsers(this.props.userIDs);
@@ -133,7 +127,6 @@ export class Amazon extends React.Component {
             </div>
           </div>
 
-
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="todoText" placeholder="Search Amazon.com"/>
           <button className="button expanded">Find Product</button>
@@ -143,8 +136,6 @@ export class Amazon extends React.Component {
     )
   }
 };
-
-// export default Redux.connect()(Amazon);
 
 export default connect(
   (state) => {

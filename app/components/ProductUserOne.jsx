@@ -16,7 +16,6 @@ export class ProductUserOne extends React.Component {
     dispatch(actions.startDeincrementProductUserOne(id, counterUserOne));
     }
 
-
   render() {
     var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
     var votesWord = "Votes";
@@ -73,7 +72,6 @@ export class ProductUserOne extends React.Component {
         )
       }
     };
-
 
     return (
       <div>

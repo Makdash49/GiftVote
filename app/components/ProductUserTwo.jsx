@@ -16,8 +16,6 @@ export class ProductUserTwo extends React.Component {
     dispatch(actions.startDeincrementProductUserTwo(id, counterUserTwo));
     }
 
-
-
   render() {
     var {text, image, counterUserTwo, userTwoTotal, userNumber} = this.props;
     var votesWord = "Votes";
@@ -25,7 +23,6 @@ export class ProductUserTwo extends React.Component {
     if (counterUserTwo === 1) {
       votesWord = "Vote"
     }
-
 
     var percentage = Math.round(counterUserTwo / userTwoTotal * 100);
     isNaN(percentage) ? percentage = 0 : percentage = percentage;
@@ -77,7 +74,6 @@ export class ProductUserTwo extends React.Component {
       }
     };
 
-
     return (
       <div>
         {myComponent()}
@@ -87,9 +83,3 @@ export class ProductUserTwo extends React.Component {
 };
 
 export default connect()(ProductUserTwo);
-
-// export default connect(
-//   (state) => {
-//     return state;
-//   }
-// )(Product);

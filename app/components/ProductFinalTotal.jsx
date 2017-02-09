@@ -15,7 +15,6 @@ export class ProductFinalTotal extends React.Component {
 
     var finalPercentage = percentageUserOne + percentageUserTwo;
 
-
     var myComponent = () => {
 
       return (
@@ -37,7 +36,6 @@ export class ProductFinalTotal extends React.Component {
         </div>
       )
     };
-
 
     return (
       <div>
