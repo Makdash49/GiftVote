@@ -260,7 +260,6 @@ export var login = (uid) => {
 export var startLogin = () => {
   return (dispatch, getState) => {
     firebase.auth().signInAnonymously().then((result) => {
-      // // // console.log('UID', result.uid);
       var userID = {
         uid: result.uid,
         createdAt: moment().unix()
@@ -353,18 +352,3 @@ export var startDeincrementProductUserTwo = (id, counterUserTwo) => {
     });
   };
 };
-
-
-// export var startDeincrementProduct = (id, counter) => {
-//   return (dispatch, getState) => {
-//     // // // // // console.log('GET STATE', getState());
-//     var uid = getState().auth.uid;
-//     var productRef = firebaseRef.child(`products/${id}`);
-//     var updates = {
-//       counter: counter - 1
-//     };
-//     return productRef.update(updates).then(() => {
-//       dispatch(updateProduct(id, updates));
-//     });
-//   };
-// };
