@@ -5,7 +5,8 @@ import ProductUserTwo from 'ProductUserTwo';
 import ProductFinalTotal from 'ProductFinalTotal';
 import ProductAPI from 'ProductAPI'
 import UserAPI from 'UserAPI';
-import ReactMotionFlip from "react-motion-flip"
+import ReactMotionFlip from "react-motion-flip";
+var ReactDOM = require('react-dom');
 
 import * as actions from 'actions';
 var socket = io();
@@ -20,10 +21,18 @@ export class Amazon extends React.Component {
     dispatch(actions.startLogout());
   }
 
-  scrollToBottom = () => {
-    const node = React.findDOMNode(this.messagesEnd);
+  scrollToBottom () {
+    const node = ReactDOM.findDOMNode(this.messagesEnd);
     node.scrollIntoView({behavior: "smooth"});
   }
+
+//   componentDidMount() {
+//     this.scrollToBottom();
+// }
+
+// componentDidUpdate() {
+//     this.scrollToBottom();
+// }
 
   handleSubmit (e) {
     e.preventDefault();
@@ -33,7 +42,6 @@ export class Amazon extends React.Component {
 
     if (todoText.length > 0) {
       this.refs.todoText.value = '';
-
       dispatch(actions.startAddProduct(todoText));
       this.scrollToBottom();
     } else {
@@ -104,19 +112,14 @@ export class Amazon extends React.Component {
         </div>
         <div className="title-instructions">
           <h4 className="page-title">What should we buy Mom for Mother's Day?</h4>
-          <ul>
-            <li>Use the form at the bottom of the page to load products from Amazon.com to vote on.</li>
-            <li>Increment votes for a product multiple times with [ + ] and [ - ] to express your enthusiasm for it.</li>
-            <li>Percentages will be calculated and summed and the order of products will be resorted by most popular.</li>
-            <li>Logout and login to vote as the other user.  Use two browsers at the same time to see live updates. (e.g. Chrome and Safari)</li>
-          </ul>
+
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input type="text" ref="todoText" placeholder="Load Product from Amazon.com"/>
+            <button className="button expanded">Find Product</button>
+          </form>
         </div>
 
 
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="todoText" placeholder="Load Product from Amazon.com"/>
-          <button className="button expanded">Find Product</button>
-        </form>
 
           <div className="row" className="products-box">
             <div className="productContainer">
@@ -137,11 +140,10 @@ export class Amazon extends React.Component {
                 {renderProductsUsersTotals()}
               </ReactMotionFlip>
             </div>
+            <div className="secret-bottom" style={ {float:"left", clear: "both"} }
+              ref={(el) => { this.messagesEnd = el; }}>
+            </div>
           </div>
-
-        <div className="secret-bottom" style={ {float:"left", clear: "both"} }
-                ref={(el) => { this.messagesEnd = el; }}>
-        </div>
 
       </div>
     )

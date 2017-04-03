@@ -42,6 +42,8 @@
   width: 30px;
   text-align: center;
   margin-left: 5%;
+  cursor: pointer;
+  cursor: hand;
 }
 
 
@@ -50,6 +52,8 @@
   width: 30px;
   text-align: center;
   margin-left: 5%;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .productContainer {
@@ -140,7 +144,7 @@ body {
 
 .title-instructions {
   background-color: white;
-  padding-left: 40px;
+  // padding-left: 40px;
   padding-bottom: 15px;
   padding-top: 15px;
   margin-top: 15px;
@@ -162,10 +166,15 @@ body {
 
 form {
   background-color: #F5F5F5;
-  padding: 10px;
+  // padding: 10px;
+  width: 95%;
+  margin: auto;
+  // margin-bottom: 10px;
+  // padding: 10px;
+  border-radius: 5px;
 }
 
 .secret-bottom {
-  border: 5px solid red;
+  // border: 5px solid red;
   height: 175px;
 }
