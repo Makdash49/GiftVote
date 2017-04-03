@@ -20,6 +20,11 @@ export class Amazon extends React.Component {
     dispatch(actions.startLogout());
   }
 
+  scrollToBottom = () => {
+    const node = React.findDOMNode(this.messagesEnd);
+    node.scrollIntoView({behavior: "smooth"});
+  }
+
   handleSubmit (e) {
     e.preventDefault();
     var {dispatch} = this.props
@@ -30,6 +35,7 @@ export class Amazon extends React.Component {
       this.refs.todoText.value = '';
 
       dispatch(actions.startAddProduct(todoText));
+      this.scrollToBottom();
     } else {
       this.refs.todoText.focus();
     }
@@ -106,6 +112,12 @@ export class Amazon extends React.Component {
           </ul>
         </div>
 
+
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input type="text" ref="todoText" placeholder="Load Product from Amazon.com"/>
+          <button className="button expanded">Find Product</button>
+        </form>
+
           <div className="row" className="products-box">
             <div className="productContainer">
               <h5>Paul - Total Votes: {userOneTotal}</h5>
@@ -127,10 +139,9 @@ export class Amazon extends React.Component {
             </div>
           </div>
 
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="todoText" placeholder="Search Amazon.com"/>
-          <button className="button expanded">Find Product</button>
-        </form>
+        <div className="secret-bottom" style={ {float:"left", clear: "both"} }
+                ref={(el) => { this.messagesEnd = el; }}>
+        </div>
 
       </div>
     )
