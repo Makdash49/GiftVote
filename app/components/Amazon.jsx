@@ -107,7 +107,7 @@ export class Amazon extends React.Component {
 
           <form onSubmit={this.handleSubmit.bind(this)}>
             <input type="text" ref="todoText" placeholder="Enter Product Name from Amazon.com"/>
-            <button className="button expanded">Load Amazon Product</button>
+            <button className="button expanded">Load Amazon.com Product</button>
           </form>
 
           <div className="instructions">

@@ -1,14 +1,19 @@
 .top-bar, .top-bar ul {
   background-color: $nav-background;
+  font-size: 125%;
+  font-weight: bold;
+
 }
 
 .top-bar {
   .menu-text {
     color: $nav-text-color;
+    // font-size: 120%;
   }
   .menu > .menu-text > a {
     display: inline;
     padding: 0;
+    // font-size: 150%;
   }
   .active-link {
     font-weight: bold;

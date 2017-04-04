@@ -155,9 +155,10 @@ h5{
 }
 
 body {
-    background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  font-family: arial;
+  background-image: url("http://kingofwallpapers.com/soft-wallpapers/soft-wallpapers-013.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .title-instructions {
@@ -220,4 +221,8 @@ input[type=text] {
 
 .myLink {
   color: orange;
+}
+
+h1 {
+  font-family: arial;
 }

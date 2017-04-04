@@ -19,6 +19,7 @@ export class About extends React.Component {
             <li>Incorporates Amazon-Product-API into Node.js to display product information.</li>
             <li>Enables real-time updates to all users simultaneously utilizing Firebase database and event listeners.</li>
             <li>Calculates and displays user's individual vote percentage and sum of all users’ percentages with JavaScript algorithm.</li>
+            <li>Links to Amazon.com product pages when users click product images.</li>
           </ul>
         </div>
       </div>
