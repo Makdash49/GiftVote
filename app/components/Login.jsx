@@ -19,7 +19,6 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-
         <div className="row">
           <div className="columns small-centered small-10 medium-6 large-4">
             <div className="callout callout-auth">
