@@ -196,14 +196,28 @@ form {
   border-radius: 5px;
 }
 
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid orange;
+    border-radius: 4px;
+}
+
 .secret-bottom {
   // border: 5px solid red;
   height: 175px;
 }
 
 .button {
+  background-color: orange;
   &:hover {
     background: black;
   //   background: PaleGreen;
   }
+}
+
+.myLink {
+  color: orange;
 }
