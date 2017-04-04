@@ -5,7 +5,7 @@ import * as actions from 'actions';
 export class ProductFinalTotal extends React.Component {
 
   render() {
-    var {text, image, counterUserOne, userOneTotal, counterUserTwo, userTwoTotal} = this.props;
+    var {text, image, link, counterUserOne, userOneTotal, counterUserTwo, userTwoTotal} = this.props;
 
     var percentageUserOne = Math.round(counterUserOne / userOneTotal * 100);
     isNaN(percentageUserOne) ? percentageUserOne = 0 : percentageUserOne = percentageUserOne;
@@ -24,7 +24,9 @@ export class ProductFinalTotal extends React.Component {
               <p></p>
             </div>
             <div className="photo">
-              <img className="thePhoto" src={image} alt={text}/>
+              <a href={link} target="_blank">
+                <img className="thePhoto" src={image} alt={text}/>
+              </a>
             </div>
             <div className="percentage">
               <h4>{finalPercentage}%</h4>

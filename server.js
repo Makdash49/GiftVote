@@ -43,7 +43,9 @@ io.on('connection', (socket) =>  {
     }).then(function(results){
       var item = results[0]["ItemAttributes"][0]["Title"][0];
       var image = results[0]["MediumImage"][0]["URL"][0];
-      callback(item, image);
+      var link = results[0]["DetailPageURL"][0];
+      console.log('link:', link);
+      callback(item, image, link);
     }).catch(function(err){
     });
   });

@@ -20,10 +20,11 @@ export var addUserID = (userID) => {
 
 export var startAddProduct = (text) => {
   return (dispatch, getState) => {
-    socket.emit('search', text, function (text, image) {
+    socket.emit('search', text, function (text, image, link) {
       var product = {
         text,
         image,
+        link,
         counterUserOne: 0,
         counterUserTwo: 0,
         completed: false,

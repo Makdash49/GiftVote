@@ -17,7 +17,7 @@ export class ProductUserOne extends React.Component {
     }
 
   render() {
-    var {text, image, counterUserOne, userOneTotal, userNumber} = this.props;
+    var {text, image, link, counterUserOne, userOneTotal, userNumber} = this.props;
     var votesWord = "Votes";
 
     if (counterUserOne === 1) {
@@ -39,7 +39,9 @@ export class ProductUserOne extends React.Component {
                 <button className="minusBox" onClick={this.handleMinus.bind(this)}>-</button>
               </div>
               <div className="photo">
-                <img className="thePhoto" src={image} alt={text}/>
+                <a href={link} target="_blank">
+                  <img className="thePhoto" src={image} alt={text}/>
+                </a>
               </div>
               <div className="percentage">
                 <h4>{percentage}%</h4>
@@ -59,7 +61,9 @@ export class ProductUserOne extends React.Component {
                 <h6>{votesWord}</h6>
               </div>
               <div className="photo">
-                <img className="thePhoto" src={image} alt={text}/>
+                <a href={link} target="_blank">
+                  <img className="thePhoto" src={image} alt={text}/>
+                </a>
               </div>
               <div className="percentage">
                 <h4>{percentage}%</h4>
