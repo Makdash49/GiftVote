@@ -112,6 +112,14 @@ export class Amazon extends React.Component {
         </div>
         <div className="title-instructions">
           <h4 className="page-title">What should we buy Mom for Mother's Day?</h4>
+          <div className="instructions">
+            <ul>
+              <li>Use the form below to load products from Amazon.com to vote on.</li>
+              <li>Increment votes for a product multiple times with [ + ] and [ - ] to express your enthusiasm for it.</li>
+              <li>Percentages will be calculated and summed and the order of products will be resorted by most popular.</li>
+              <li>Logout and login to vote as the other user.  Use two browsers at the same time to see live updates. (e.g. Chrome and Safari)</li>
+            </ul>
+          </div>
 
           <form onSubmit={this.handleSubmit.bind(this)}>
             <input type="text" ref="todoText" placeholder="Load Product from Amazon.com"/>
