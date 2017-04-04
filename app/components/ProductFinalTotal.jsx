@@ -19,7 +19,7 @@ export class ProductFinalTotal extends React.Component {
 
       return (
         <div>
-          <div className="productImage">
+          <div className="otherUserProductImage">
             <div className="increments">
               <p></p>
             </div>

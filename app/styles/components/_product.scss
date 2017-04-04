@@ -3,9 +3,17 @@
   border: 1px solid #A9A9A9;
   padding: 18px;
 
-  &:hover {
-    background: #f0f0f0;
-  }
+  // &:hover {
+  //   // background: #f0f0f0;
+  //   background: PaleGreen;
+  // }
+}
+
+.otherUserProductImage {
+  // background-color: white;
+  background-color: #f0f0f0;
+  border: 1px solid #A9A9A9;
+  padding: 18px;
 }
 
 .productImage2 {
@@ -38,22 +46,32 @@
 
 
 .plusBox {
-  border: 1px solid green;
+  border: 3px solid green;
   width: 30px;
   text-align: center;
   margin-left: 5%;
   cursor: pointer;
   cursor: hand;
+  &:hover {
+    // background: #f0f0f0;
+    background: green;
+    color: white;
+  }
 }
 
 
 .minusBox {
-  border: 1px solid red;
+  border: 3px solid red;
   width: 30px;
   text-align: center;
   margin-left: 5%;
   cursor: pointer;
   cursor: hand;
+  &:hover {
+    // background: #f0f0f0;
+    background: red;
+    color: white;
+  }
 }
 
 .productContainer {
@@ -181,4 +199,11 @@ form {
 .secret-bottom {
   // border: 5px solid red;
   height: 175px;
+}
+
+.button {
+  &:hover {
+    background: black;
+  //   background: PaleGreen;
+  }
 }

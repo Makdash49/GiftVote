@@ -53,7 +53,7 @@ export class ProductUserOne extends React.Component {
       } else {
         return (
           <div>
-            <div className="productImage">
+            <div className="otherUserProductImage">
               <div className="increments">
                 <h4>{counterUserOne}</h4>
                 <h6>{votesWord}</h6>

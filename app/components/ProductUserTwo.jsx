@@ -54,7 +54,7 @@ export class ProductUserTwo extends React.Component {
       } else {
         return (
           <div>
-            <div className="productImage">
+            <div className="otherUserProductImage">
               <div className="increments">
                 <h4>{counterUserTwo}</h4>
                 <h6>{votesWord}</h6>
