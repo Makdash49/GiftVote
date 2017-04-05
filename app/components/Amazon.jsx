@@ -119,30 +119,28 @@ export class Amazon extends React.Component {
           </div>
         </div>
 
-          <div className="row" className="products-box">
-            <div className="productContainer">
-              <h5>Paul - Total Votes: {userOneTotal}</h5>
-              <ReactMotionFlip>
-                {renderProductsUserOne()}
-              </ReactMotionFlip>
-            </div>
-            <div className="productContainer">
-              <h5>Kathy - Total Votes: {userTwoTotal}</h5>
-              <ReactMotionFlip>
-                {renderProductsUserTwo()}
-              </ReactMotionFlip>
-            </div>
-            <div className="productContainer">
-              <h5>Totals out of 200%</h5>
-              <ReactMotionFlip>
-                {renderProductsUsersTotals()}
-              </ReactMotionFlip>
-            </div>
-            <div className="secret-bottom" style={ {float:"left", clear: "both"} }
-              ref={(el) => { this.messagesEnd = el; }}>
-            </div>
-          </div>
-
+        <div className="productContainer">
+          <h5>Paul - Total Votes: {userOneTotal}</h5>
+          <ReactMotionFlip>
+            {renderProductsUserOne()}
+          </ReactMotionFlip>
+        </div>
+        <div className="productContainer">
+          <h5>Kathy - Total Votes: {userTwoTotal}</h5>
+          <ReactMotionFlip>
+            {renderProductsUserTwo()}
+          </ReactMotionFlip>
+        </div>
+        <div className="productContainer">
+          <h5>Totals out of 200%</h5>
+          <ReactMotionFlip>
+            {renderProductsUsersTotals()}
+          </ReactMotionFlip>
+        </div>
+        <div className="secret-bottom" style={ {float:"left", clear: "both"} }
+          ref={(el) => { this.messagesEnd = el; }}>
+        </div>
+        
       </div>
     )
   }
